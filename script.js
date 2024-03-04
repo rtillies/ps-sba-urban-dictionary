@@ -18,12 +18,18 @@ const populateDropdown = () => {
 populateDropdown()
 
 searchButton.addEventListener ('click', searchTerm)
+dropdown.addEventListener ('change', searchTerm)
 
 async function searchTerm(event) {
+  console.log("Event", event);
+  console.log("Target", event.target);
+  console.log("Value", event.target.value);
+  const term = event.target.value;
+
   const options = {
     method: "GET",
     url: "https://mashape-community-urban-dictionary.p.rapidapi.com/define",
-    params: { term: "fly" },
+    params: { term: term },
     headers: {
       "X-RapidAPI-Key": "750a17b4fcmsh7cef245e5bdf231p15b39ejsn3613a3a94360",
       "X-RapidAPI-Host": "mashape-community-urban-dictionary.p.rapidapi.com",
