@@ -1,9 +1,21 @@
 // import axios from 'axios';
 
+const searchTerms = ['fly', 'phat', 'dope', 'fresh', 'def', 'bling', 'props', 'word', 'ill', 'homie', 'crib']
+
 const searchButton = document.querySelector('#search-button')
 const searchText = document.querySelector('#search-field')
 const dropdown = document.querySelector('#dropdown')
 const accordion = document.querySelector('#accordionExample')
+
+const populateDropdown = () => {
+  searchTerms.forEach((term) => {
+    const optionHtml = document.createElement('option')
+    optionHtml.value = term
+    optionHtml.innerText = term
+    dropdown.append(optionHtml)
+  })
+}
+populateDropdown()
 
 searchButton.addEventListener ('click', searchTerm)
 
