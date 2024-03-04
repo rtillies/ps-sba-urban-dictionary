@@ -1,5 +1,13 @@
 body {
   background-color: #171F36;
   color: #fff;
+}
+
+.container {
   display: flex;
+}
+
+.accordion {
+  width: 60%;
+  margin: auto;
 }
