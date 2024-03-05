@@ -50,7 +50,6 @@ async function searchTerm(event) {
     for (let i = 0; i < data.length; i++) {
       const item = data[i]
       createAccordionItem(item, i)
-    
     }
   } catch (error) {
     console.error(error);
@@ -84,7 +83,7 @@ function changeTopItem(item) {
 }
 
 function createAccordionItem(item, index) {
-  const items = {
+  const testItem = {
     "definition": "[sexy] or [hella fine]",
     "permalink": "http://fly.urbanup.com/11451940",
     "thumbs_up": 48,
@@ -131,7 +130,7 @@ function createAccordionItem(item, index) {
   accordionBody.classList.add('accordion-body')
 
   const date = item.written_on.split('T')[0]
-  accordionButton.innerHTML = `<b>${date}</b>`
+  accordionButton.innerHTML = `<b>[${index+1}] ${date}</b>`
   accordionBody.innerHTML = `
     <p><b>Definition</b><br />
       ${item.definition}
