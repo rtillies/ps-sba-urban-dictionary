@@ -130,12 +130,14 @@ function createAccordionItem(item, index) {
   accordionBody.classList.add('accordion-body')
 
   const date = item.written_on.split('T')[0]
+  const cleanDefinition = removeProfanity(item.definition)
+  const cleanExample = removeProfanity(item.example)
   accordionButton.innerHTML = `<b>[${index+1}] ${date}</b>`
   accordionBody.innerHTML = `
     <p><b>Definition</b><br />
       ${item.definition}
-    </p>
-    <p><b>Example</b><br />
+      </p>
+      <p><b>Example</b><br />
       ${item.example}
     </p>
     <p>
@@ -148,4 +150,27 @@ function createAccordionItem(item, index) {
   accordionItem.append(accordionHeader)
   accordionItem.append(accordionCollapse)
   accordion.append(accordionItem)
+}
+
+async function removeProfanity(text) {
+  const options = {
+    method: 'GET',
+    url: 'https://community-purgomalum.p.rapidapi.com/json',
+    params: {
+      text: text
+    },
+    headers: {
+      'X-RapidAPI-Key': '750a17b4fcmsh7cef245e5bdf231p15b39ejsn3613a3a94360',
+      'X-RapidAPI-Host': 'community-purgomalum.p.rapidapi.com'
+    }
+  };
+  
+  try {
+    const response = await axios.request(options);
+    console.log("Clean data", response.data);
+    console.log("Clean result", response.data.result);
+    return response.data.result
+  } catch (error) {
+    console.error(error);
+  }
 }
