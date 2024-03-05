@@ -16,6 +16,7 @@ const populateDropdown = () => {
   })
 }
 populateDropdown()
+resetAccordion()
 // createAccordionItem("i", 3)
 
 // searchButton.addEventListener ('click', searchTerm)
@@ -42,6 +43,8 @@ async function searchTerm(event) {
     const data = response.data.list 
     console.log(data);
 
+    resetAccordion()
+
     changeTopItem(data[0])
 
     for (let i = 0; i < data.length; i++) {
@@ -51,6 +54,13 @@ async function searchTerm(event) {
     }
   } catch (error) {
     console.error(error);
+  }
+}
+
+function resetAccordion() {
+  console.log(accordion.childElementCount);
+  while (accordion.childElementCount > 1) {
+    accordion.lastElementChild.remove()
   }
 }
 
@@ -71,8 +81,6 @@ function changeTopItem(item) {
       ${item.word}
     </a></p>
   `
-
-
 }
 
 function createAccordionItem(item, index) {
