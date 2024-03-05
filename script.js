@@ -16,10 +16,10 @@ const populateDropdown = () => {
   })
 }
 populateDropdown()
-createAccordionItem("i", 3)
+// createAccordionItem("i", 3)
 
 // searchButton.addEventListener ('click', searchTerm)
-// dropdown.addEventListener ('change', searchTerm)
+dropdown.addEventListener ('change', searchTerm)
 
 async function searchTerm(event) {
   console.log("Event", event);
@@ -45,9 +45,9 @@ async function searchTerm(event) {
     //   console.log(index, item);
     // })
     // for (const item of data) {
-    for (let i = 0; i == 0; i++) {
+    for (let i = 0; i < data.length; i++) {
       const item = data[i]
-      createAccordionItem(item)
+      createAccordionItem(item, i)
     
     }
   } catch (error) {
@@ -55,19 +55,19 @@ async function searchTerm(event) {
   }
 }
 
-function createAccordionItem(i, index) {
-  const item = {
-    "definition": "[sexy] or [hella fine]",
-    "permalink": "http://fly.urbanup.com/11451940",
-    "thumbs_up": 48,
-    "author": "reger3785",
-    "word": "fly",
-    "defid": 11451940,
-    "current_vote": "",
-    "written_on": "2017-04-19T00:09:36.591Z",
-    "example": "[damn girl] you fly",
-    "thumbs_down": 3  
-  }
+function createAccordionItem(item, index) {
+  // const item = {
+  //   "definition": "[sexy] or [hella fine]",
+  //   "permalink": "http://fly.urbanup.com/11451940",
+  //   "thumbs_up": 48,
+  //   "author": "reger3785",
+  //   "word": "fly",
+  //   "defid": 11451940,
+  //   "current_vote": "",
+  //   "written_on": "2017-04-19T00:09:36.591Z",
+  //   "example": "[damn girl] you fly",
+  //   "thumbs_down": 3  
+  // }
 
   console.log(item.word);
   console.log(item.written_on);
