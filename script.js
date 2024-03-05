@@ -38,7 +38,23 @@ async function searchTerm(event) {
 
   try {
     const response = await axios.request(options);
-    console.log(response.data);
+    const data = response.data.list 
+    console.log(data);
+    // response.data.forEach((item) => {
+    //   console.log(index, item);
+    // })
+    // for (const item of data) {
+    for (let i = 0; i == 0; i++) {
+      const item = data[0]
+      console.log(item.word);
+      console.log(item.written_on);
+      console.log(item.definition);
+      console.log(item.permalink);
+      console.log(item.example);
+      let percent = Math.round(item.thumbs_up * 100 / (item.thumbs_up + item.thumbs_down))
+      console.log(`${percent}%`);
+    
+    }
   } catch (error) {
     console.error(error);
   }
