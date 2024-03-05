@@ -16,9 +16,10 @@ const populateDropdown = () => {
   })
 }
 populateDropdown()
+createAccordionItem("i", 2)
 
-searchButton.addEventListener ('click', searchTerm)
-dropdown.addEventListener ('change', searchTerm)
+// searchButton.addEventListener ('click', searchTerm)
+// dropdown.addEventListener ('change', searchTerm)
 
 async function searchTerm(event) {
   console.log("Event", event);
@@ -45,17 +46,62 @@ async function searchTerm(event) {
     // })
     // for (const item of data) {
     for (let i = 0; i == 0; i++) {
-      const item = data[0]
-      console.log(item.word);
-      console.log(item.written_on);
-      console.log(item.definition);
-      console.log(item.permalink);
-      console.log(item.example);
-      let percent = Math.round(item.thumbs_up * 100 / (item.thumbs_up + item.thumbs_down))
-      console.log(`${percent}%`);
+      const item = data[i]
+      createAccordionItem(item)
     
     }
   } catch (error) {
     console.error(error);
   }
+}
+
+function createAccordionItem(i, index) {
+  const item = {
+    "definition": "[sexy] or [hella fine]",
+    "permalink": "http://fly.urbanup.com/11451940",
+    "thumbs_up": 48,
+    "author": "reger3785",
+    "word": "fly",
+    "defid": 11451940,
+    "current_vote": "",
+    "written_on": "2017-04-19T00:09:36.591Z",
+    "example": "[damn girl] you fly",
+    "thumbs_down": 3  
+  }
+
+  console.log(item.word);
+  console.log(item.written_on);
+  console.log(item.definition);
+  console.log(item.permalink);
+  console.log(item.example);
+  let percent = Math.round(item.thumbs_up * 100 / (item.thumbs_up + item.thumbs_down))
+  console.log(`${percent}%`);
+
+  const accordionItem = document.createElement('div')
+  accordionItem.classList.add('accordion-item')
+  
+  const accordionHeader = document.createElement('h2')
+  accordionHeader.classList.add('accordion-header')
+  
+  const accordionButton = document.createElement('button')
+  accordionButton.classList.add('accordion-button')
+  
+  const accordionCollapse = document.createElement('div')
+  accordionCollapse.id = `collapse${index}`
+  accordionCollapse.classList.add(`'accordion-collapse'`)
+  accordionCollapse.classList.add('collapse')
+  accordionCollapse.setAttribute('data-bs-parent','accordionExample')
+
+  
+  const accordionBody = document.createElement('div')
+  accordionBody.classList.add('accordion-body')
+
+  accordionButton.innerText = item.written_on
+  accordionBody.innerHTML = `<p>${item.definition}</p>`
+
+  accordionHeader.append(accordionButton)
+  accordionCollapse.append(accordionBody)
+  accordionItem.append(accordionHeader)
+  accordionItem.append(accordionCollapse)
+  accordion.append(accordionItem)
 }
