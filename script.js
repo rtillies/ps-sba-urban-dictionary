@@ -105,7 +105,8 @@ function createAccordionItem(i, index) {
   const accordionBody = document.createElement('div')
   accordionBody.classList.add('accordion-body')
 
-  accordionButton.innerText = item.written_on
+  const date = item.written_on.split('T')[0]
+  accordionButton.innerHTML = `<b>${date}</b>`
   accordionBody.innerHTML = `<p>${item.definition}</p>`
 
   accordionHeader.append(accordionButton)
