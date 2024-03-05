@@ -41,10 +41,9 @@ async function searchTerm(event) {
     const response = await axios.request(options);
     const data = response.data.list 
     console.log(data);
-    // response.data.forEach((item) => {
-    //   console.log(index, item);
-    // })
-    // for (const item of data) {
+
+    changeTopItem(data[0])
+
     for (let i = 0; i < data.length; i++) {
       const item = data[i]
       createAccordionItem(item, i)
@@ -55,19 +54,40 @@ async function searchTerm(event) {
   }
 }
 
+function changeTopItem(item) {
+  const topItem = document.getElementById('top-item')
+  console.log("Top Item", topItem);
+  const topButton = topItem.getElementsByTagName('button')[0]
+  console.log("Top Button", topButton);
+  topButton.innerHTML = `<b>${item.word}</b>`
+  const topBody = topItem.getElementsByTagName('div')[0]
+  console.log("Top Body", topBody);
+  topBody.innerHTML = 
+  `<p>
+    Permalink: 
+    <a href="${item.permalink}" 
+      target="_blank" 
+      alt="Permalink to definition">
+      ${item.word}
+    </a></p>
+  `
+
+
+}
+
 function createAccordionItem(item, index) {
-  // const item = {
-  //   "definition": "[sexy] or [hella fine]",
-  //   "permalink": "http://fly.urbanup.com/11451940",
-  //   "thumbs_up": 48,
-  //   "author": "reger3785",
-  //   "word": "fly",
-  //   "defid": 11451940,
-  //   "current_vote": "",
-  //   "written_on": "2017-04-19T00:09:36.591Z",
-  //   "example": "[damn girl] you fly",
-  //   "thumbs_down": 3  
-  // }
+  const items = {
+    "definition": "[sexy] or [hella fine]",
+    "permalink": "http://fly.urbanup.com/11451940",
+    "thumbs_up": 48,
+    "author": "reger3785",
+    "word": "fly",
+    "defid": 11451940,
+    "current_vote": "",
+    "written_on": "2017-04-19T00:09:36.591Z",
+    "example": "[damn girl] you fly",
+    "thumbs_down": 3  
+  }
 
   console.log(item.word);
   console.log(item.written_on);
@@ -91,9 +111,6 @@ function createAccordionItem(item, index) {
   accordionButton.setAttribute('data-bs-target',`#collapse${index}`)
   accordionButton.setAttribute('aria-expanded','false')
   accordionButton.setAttribute('aria-controls',`#collapse${index}`)
-  // <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-  //           Accordion Item #2
-  //         </button>
   
   const accordionCollapse = document.createElement('div')
   accordionCollapse.id = `collapse${index}`
@@ -107,7 +124,17 @@ function createAccordionItem(item, index) {
 
   const date = item.written_on.split('T')[0]
   accordionButton.innerHTML = `<b>${date}</b>`
-  accordionBody.innerHTML = `<p>${item.definition}</p>`
+  accordionBody.innerHTML = `
+    <p><b>Definition</b><br />
+      ${item.definition}
+    </p>
+    <p><b>Example</b><br />
+      ${item.example}
+    </p>
+    <p>
+      <i class="fa-solid fa-thumbs-up"></i> ${percent}%
+    </p>
+    `
 
   accordionHeader.append(accordionButton)
   accordionCollapse.append(accordionBody)
