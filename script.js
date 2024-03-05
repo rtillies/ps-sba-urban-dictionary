@@ -16,7 +16,7 @@ const populateDropdown = () => {
   })
 }
 populateDropdown()
-createAccordionItem("i", 2)
+createAccordionItem("i", 3)
 
 // searchButton.addEventListener ('click', searchTerm)
 // dropdown.addEventListener ('change', searchTerm)
@@ -85,12 +85,21 @@ function createAccordionItem(i, index) {
   
   const accordionButton = document.createElement('button')
   accordionButton.classList.add('accordion-button')
+  accordionButton.classList.add('collapsed')
+  accordionButton.type = 'button'
+  accordionButton.setAttribute('data-bs-toggle','collapse')
+  accordionButton.setAttribute('data-bs-target',`#collapse${index}`)
+  accordionButton.setAttribute('aria-expanded','false')
+  accordionButton.setAttribute('aria-controls',`#collapse${index}`)
+  // <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+  //           Accordion Item #2
+  //         </button>
   
   const accordionCollapse = document.createElement('div')
   accordionCollapse.id = `collapse${index}`
-  accordionCollapse.classList.add(`'accordion-collapse'`)
+  accordionCollapse.classList.add('accordion-collapse')
   accordionCollapse.classList.add('collapse')
-  accordionCollapse.setAttribute('data-bs-parent','accordionExample')
+  accordionCollapse.setAttribute('data-bs-parent','#accordionExample')
 
   
   const accordionBody = document.createElement('div')
