@@ -185,3 +185,11 @@ async function removeProfanity(text) {
     console.error(error);
   }
 }
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("min-approval");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
