@@ -78,18 +78,30 @@ function changeTopItem(item) {
   console.log("Top Item", topItem);
   const topButton = topItem.getElementsByTagName('button')[0]
   console.log("Top Button", topButton);
-  topButton.innerHTML = `<b>${item.word}</b>`
+  topButton.innerHTML = 
+  `<span>
+  Urban Dictionary Permalink:
+  <a href="${item.permalink}" 
+    target="_blank" 
+    alt="Permalink to definition">
+    <b>${item.word}</b>
+  </a>
+  </span>
+`
+  // `<b>${item.word}</b>`
+
   const topBody = topItem.getElementsByTagName('div')[0]
   console.log("Top Body", topBody);
-  topBody.innerHTML = 
-  `<p>
-    Permalink: 
-    <a href="${item.permalink}" 
-      target="_blank" 
-      alt="Permalink to definition">
-      ${item.word}
-    </a></p>
-  `
+  topBody.innerHTML = ''
+  // topBody.innerHTML = 
+  // `<p>
+  //   Permalink: 
+  //   <a href="${item.permalink}" 
+  //     target="_blank" 
+  //     alt="Permalink to definition">
+  //     ${item.word}
+  //   </a></p>
+  // `
   wordHeading.innerText = item.word;
 }
 
