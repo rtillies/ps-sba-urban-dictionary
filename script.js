@@ -110,7 +110,15 @@ async function createAccordionItem(item, index) {
   // console.log(item.permalink);
   // console.log(item.example);
   let percent = Math.round(item.thumbs_up * 100 / (item.thumbs_up + item.thumbs_down))
+  const date = item.written_on.split('T')[0]
+
   // console.log(`${percent}%`);
+  let minValue = Number(minApproval.innerText)
+  // console.log(percent, minValue);
+  if (percent < minValue) {
+    // console.log(`Don't post ${date}`);
+    return
+  } 
 
   const accordionItem = document.createElement('div')
   accordionItem.classList.add('accordion-item')
@@ -137,10 +145,13 @@ async function createAccordionItem(item, index) {
   const accordionBody = document.createElement('div')
   accordionBody.classList.add('accordion-body')
 
-  const date = item.written_on.split('T')[0]
+  // const date = item.written_on.split('T')[0]
   const cleanDefinition = await removeProfanity(item.definition)
   const cleanExample = await removeProfanity(item.example)
-  accordionButton.innerHTML = `<b>[${index+1}] ${date}</b>`
+  accordionButton.innerHTML = `
+    <b>[${index+1}] ${date}</b> &nbsp; | &nbsp;
+    <i class="fa-solid fa-thumbs-up"></i> &nbsp; ${percent}%
+    `
   accordionBody.innerHTML = `
     <p><b>Definition</b><br />
       ${cleanDefinition}
@@ -148,10 +159,10 @@ async function createAccordionItem(item, index) {
       <p><b>Example</b><br />
       ${cleanExample}
     </p>
-    <p>
-      <i class="fa-solid fa-thumbs-up"></i> ${percent}%
-    </p>
     `
+    // <p>
+    //   <i class="fa-solid fa-thumbs-up"></i> ${percent}%
+    // </p>
   // accordionBody.innerHTML = `
   //   <p><b>Definition</b><br />
   //     ${item.definition}
