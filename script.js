@@ -2,8 +2,8 @@
 
 const searchTerms = ['fly', 'phat', 'dope', 'fresh', 'def', 'bling', 'props', 'word', 'ill', 'homie', 'crib']
 
-const searchButton = document.querySelector('#search-button')
-const searchText = document.querySelector('#search-field')
+// const searchButton = document.querySelector('#search-button')
+// const searchText = document.querySelector('#search-field')
 const dropdown = document.querySelector('#dropdown')
 const accordion = document.querySelector('#accordionExample')
 const wordHeading = document.querySelector('#word-heading')
@@ -14,7 +14,8 @@ minApproval.innerHTML = slider.value;
 
 slider.oninput = function() {
   minApproval.innerHTML = this.value;
-  // searchTerm()
+  if (dropdown.value !== '')
+    searchTerm({"target": dropdown})
 }
 
 const populateDropdown = () => {
