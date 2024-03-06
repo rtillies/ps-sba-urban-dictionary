@@ -82,27 +82,27 @@ function changeTopItem(item) {
   `
 }
 
-function createAccordionItem(item, index) {
-  const testItem = {
-    "definition": "[sexy] or [hella fine]",
-    "permalink": "http://fly.urbanup.com/11451940",
-    "thumbs_up": 48,
-    "author": "reger3785",
-    "word": "fly",
-    "defid": 11451940,
-    "current_vote": "",
-    "written_on": "2017-04-19T00:09:36.591Z",
-    "example": "[damn girl] you fly",
-    "thumbs_down": 3  
-  }
+async function createAccordionItem(item, index) {
+  // const testItem = {
+  //   "definition": "[sexy] or [hella fine]",
+  //   "permalink": "http://fly.urbanup.com/11451940",
+  //   "thumbs_up": 48,
+  //   "author": "reger3785",
+  //   "word": "fly",
+  //   "defid": 11451940,
+  //   "current_vote": "",
+  //   "written_on": "2017-04-19T00:09:36.591Z",
+  //   "example": "[damn girl] you fly",
+  //   "thumbs_down": 3  
+  // }
 
-  console.log(item.word);
-  console.log(item.written_on);
-  console.log(item.definition);
-  console.log(item.permalink);
-  console.log(item.example);
+  // console.log(item.word);
+  // console.log(item.written_on);
+  // console.log(item.definition);
+  // console.log(item.permalink);
+  // console.log(item.example);
   let percent = Math.round(item.thumbs_up * 100 / (item.thumbs_up + item.thumbs_down))
-  console.log(`${percent}%`);
+  // console.log(`${percent}%`);
 
   const accordionItem = document.createElement('div')
   accordionItem.classList.add('accordion-item')
@@ -130,20 +130,31 @@ function createAccordionItem(item, index) {
   accordionBody.classList.add('accordion-body')
 
   const date = item.written_on.split('T')[0]
-  const cleanDefinition = removeProfanity(item.definition)
-  const cleanExample = removeProfanity(item.example)
+  const cleanDefinition = await removeProfanity(item.definition)
+  const cleanExample = await removeProfanity(item.example)
   accordionButton.innerHTML = `<b>[${index+1}] ${date}</b>`
   accordionBody.innerHTML = `
     <p><b>Definition</b><br />
-      ${item.definition}
+      ${cleanDefinition}
       </p>
       <p><b>Example</b><br />
-      ${item.example}
+      ${cleanExample}
     </p>
     <p>
       <i class="fa-solid fa-thumbs-up"></i> ${percent}%
     </p>
     `
+  // accordionBody.innerHTML = `
+  //   <p><b>Definition</b><br />
+  //     ${item.definition}
+  //     </p>
+  //     <p><b>Example</b><br />
+  //     ${item.example}
+  //   </p>
+  //   <p>
+  //     <i class="fa-solid fa-thumbs-up"></i> ${percent}%
+  //   </p>
+  //   `
 
   accordionHeader.append(accordionButton)
   accordionCollapse.append(accordionBody)
@@ -167,7 +178,7 @@ async function removeProfanity(text) {
   
   try {
     const response = await axios.request(options);
-    console.log("Clean data", response.data);
+    // console.log("Clean data", response.data);
     console.log("Clean result", response.data.result);
     return response.data.result
   } catch (error) {
