@@ -1,21 +1,22 @@
 body {
   background-color: #171F36;
   color: #fff;
+  margin: 20px auto;
 }
 
 .container {
-  display: flex;
+  /* display: flex; */
 }
 
 .accordion {
-  width: 40%;
+  /* width: 40%; */
   margin: auto;
 }
 
 /* Slider */
 .slidecontainer {
-  width: 40%;
-  margin: auto;
+  width: 70%;
+  margin: 20px auto;
 }
 
 .slider {

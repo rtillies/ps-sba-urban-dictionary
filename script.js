@@ -13,6 +13,7 @@ minApproval.innerHTML = slider.value;
 
 slider.oninput = function() {
   minApproval.innerHTML = this.value;
+  // searchTerm()
 }
 
 const populateDropdown = () => {

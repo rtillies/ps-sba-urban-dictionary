@@ -45,23 +45,12 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-sm">
+        <div class="col">
           <img
             src="images/Urban_Dictionary_logo.svg"
             alt="Urban Dictionary"
             width="100%"
           />
-        </div>
-        <!-- <div class="col-sm">
-          <input id="search-field" type="text" placeholder="search text" />
-        </div> -->
-        <!-- <div class="col-sm">
-          <button id="search-button" class="btn btn-primary mx-auto">
-            Search
-          </button>
-        </div> -->
-
-        <div class="col-sm">
           <select
             id="dropdown"
             style="width: 300px;"
@@ -70,43 +59,47 @@
           >
             <option value="">Choose a 90s term</option>
           </select>
+          <div class="slidecontainer">
+            <input
+              type="range"
+              min="50"
+              max="80"
+              step="5"
+              value="60"
+              class="slider"
+              id="slider"
+            />
+            <p>Minimal Approval: <span id="min-approval"></span>%</p>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-sm">
-        <div class="slidecontainer">
-          <input type="range" min="50" max="80" step="5" value="60" class="slider" id="slider">
-          <p>Minimal Approval: <span id="min-approval"></span>%</p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="accordion" id="accordionExample">
-      <div id="top-item" class="accordion-item">
-        <h2 class="accordion-header">
-          <button
-            class="accordion-button"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#top"
-            aria-expanded="true"
-            aria-controls="top"
-          >
-            Choose a search term above to get started!
-          </button>
-        </h2>
-        <div
-          id="top"
-          class="accordion-collapse collapse show"
-          data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <p>Get definitions and examples for your search term here!</p>
-            <!-- <strong>Placeholder heading</strong>
+        <div class="col">
+          <div class="accordion" id="accordionExample">
+            <div id="top-item" class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#top"
+                  aria-expanded="true"
+                  aria-controls="top"
+                >
+                  Choose a search term from the dropdown menu to get started!
+                </button>
+              </h2>
+              <div
+                id="top"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  <p>Get definitions and examples for your search term here!</p>
+                  <!-- <strong>Placeholder heading</strong>
             <p>Placeholder text</p> -->
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
