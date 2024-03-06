@@ -13,9 +13,13 @@ body {
   margin: auto;
 }
 
+#dropdown {
+  width: 60%;
+}
+
 /* Slider */
 .slidecontainer {
-  width: 70%;
+  width: 60%;
   margin: 20px auto;
 }
 
@@ -23,6 +27,7 @@ body {
   -webkit-appearance: none;
   width: 100%;
   height: 25px;
+  /* border-radius: 20% 0; */
   background: #f3f3f3;
   outline: none;
   opacity: 0.8;
@@ -37,8 +42,8 @@ body {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: cornflowerblue;
   cursor: pointer;
@@ -49,4 +54,21 @@ body {
   height: 25px;
   background: cornflowerblue;
   cursor: pointer;
+}
+
+/* Fonts */
+/* .chicle-regular { */
+.chicle {
+  font-family: "Chicle", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: auto;
+  text-align: center;
+}
+
+.bungee {
+  font-family: "Bungee Spice", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  /* text-align: center; */
 }
