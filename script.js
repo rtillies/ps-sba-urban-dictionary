@@ -6,6 +6,7 @@ const searchButton = document.querySelector('#search-button')
 const searchText = document.querySelector('#search-field')
 const dropdown = document.querySelector('#dropdown')
 const accordion = document.querySelector('#accordionExample')
+const wordHeading = document.querySelector('#word-heading')
 
 const slider = document.getElementById("slider");
 let minApproval = document.getElementById("min-approval");
@@ -89,6 +90,7 @@ function changeTopItem(item) {
       ${item.word}
     </a></p>
   `
+  wordHeading.innerText = item.word;
 }
 
 async function createAccordionItem(item, index) {
