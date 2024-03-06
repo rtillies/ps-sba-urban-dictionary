@@ -5,7 +5,10 @@ const searchTerms = ['fly', 'phat', 'dope', 'fresh', 'def', 'bling', 'props', 'w
 // const searchButton = document.querySelector('#search-button')
 // const searchText = document.querySelector('#search-field')
 const dropdown = document.querySelector('#dropdown')
+const resetAllButton = document.querySelector('#reset-all')
 const accordion = document.querySelector('#accordionExample')
+const topItem = document.getElementById('top-item')
+
 const wordHeading = document.querySelector('#word-heading')
 
 const slider = document.getElementById("slider");
@@ -32,6 +35,7 @@ resetAccordion()
 
 // searchButton.addEventListener ('click', searchTerm)
 dropdown.addEventListener ('change', searchTerm)
+resetAllButton.addEventListener ('click', resetAll)
 
 async function searchTerm(event) {
   console.log("Event", event);
@@ -75,20 +79,20 @@ function resetAccordion() {
 }
 
 function changeTopItem(item) {
-  const topItem = document.getElementById('top-item')
+  // const topItem = document.getElementById('top-item')
   console.log("Top Item", topItem);
   const topButton = topItem.getElementsByTagName('button')[0]
   console.log("Top Button", topButton);
   topButton.innerHTML = 
-  `<span>
-  Urban Dictionary Permalink:
-  <a href="${item.permalink}" 
-    target="_blank" 
-    alt="Permalink to definition">
-    <b>${item.word}</b>
-  </a>
-  </span>
-`
+    `<span>
+    Urban Dictionary Permalink:
+    <a href="${item.permalink}" 
+      target="_blank" 
+      alt="Permalink to definition">
+      <b>${item.word}</b>
+    </a>
+    </span>
+    `
   // `<b>${item.word}</b>`
 
   const topBody = topItem.getElementsByTagName('div')[0]
@@ -221,3 +225,24 @@ async function removeProfanity(text) {
   }
 }
 
+function resetAll() {
+  dropdown.value = ''
+  slider.value = 60;
+  minApproval.innerHTML = slider.value;
+  wordHeading.innerText = ''
+  resetAccordion();
+
+  // accordion.firstElementChild.innerHTML = ''
+  const topButton = topItem.getElementsByTagName('button')[0]
+  topButton.innerHTML = 'Choose a search term from the dropdown menu!'
+  const topBody = topItem.getElementsByTagName('div')[0]
+  // console.log("Top Body", topBody);
+  const div = document.createElement('div')
+  div.classList.add('accordion-body')
+  const p = document.createElement('p')
+  p.innerText = "Get definitions and examples for your search term here!"
+  div.append(p)
+  topBody.append(div)
+  // topBody.innerHTML = `<p>Get definitions and examples for your search term here!</p>`
+
+}

@@ -75,5 +75,8 @@ body {
 
 h1, #approval {
   text-align: center;
+}
 
+.btn-danger {
+  width: 100%;
 }
