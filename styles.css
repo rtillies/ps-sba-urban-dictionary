@@ -20,6 +20,7 @@ body {
 .slidecontainer {
   width: 60%;
   margin: 20px auto;
+  text-align: center;
 }
 
 .slider {
@@ -60,12 +61,19 @@ body {
   font-weight: 400;
   font-style: normal;
   margin: auto;
-  text-align: center;
+  /* text-align: center; */
+
 }
 
 .bungee {
   font-family: "Bungee Spice", sans-serif;
   font-weight: 400;
   font-style: normal;
+  /* text-align: center; */
+
+}
+
+h1, #approval {
   text-align: center;
+
 }
