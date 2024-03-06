@@ -7,6 +7,14 @@ const searchText = document.querySelector('#search-field')
 const dropdown = document.querySelector('#dropdown')
 const accordion = document.querySelector('#accordionExample')
 
+const slider = document.getElementById("slider");
+let minApproval = document.getElementById("min-approval");
+minApproval.innerHTML = slider.value;
+
+slider.oninput = function() {
+  minApproval.innerHTML = this.value;
+}
+
 const populateDropdown = () => {
   searchTerms.forEach((term) => {
     const optionHtml = document.createElement('option')
@@ -186,10 +194,3 @@ async function removeProfanity(text) {
   }
 }
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("min-approval");
-output.innerHTML = slider.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
