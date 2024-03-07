@@ -27,11 +27,6 @@ const populateDropdown = () => {
     dropdown.append(optionHtml)
   })
 }
-populateDropdown()
-clearAccordion()
-
-dropdown.addEventListener ('change', searchTerm)
-resetAllButton.addEventListener ('click', resetAll)
 
 async function searchTerm(event) {
   console.log("Event", event);
@@ -194,3 +189,10 @@ function resetPlaceholder() {
   div.append(p)
   topBody.append(div)
 }
+
+// Main program
+populateDropdown()
+clearAccordion()
+
+dropdown.addEventListener ('change', searchTerm)
+resetAllButton.addEventListener ('click', resetAll)
