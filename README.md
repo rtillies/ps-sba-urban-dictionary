@@ -13,6 +13,9 @@
   * Expand each panel to get the definition and example.
   * The results will only display results that meet or exceed the minimum approval rating.
   * The approval rating slider can be adjusted between 50% and 80%
+* The definitions and examples are filtered for profanity via a second API.
+  * The filter is not "perfect". Some offensive words remain because they are technically not profane (e.g. the original title of *Let's Get It Started* by the Black Eyed Peas).
+  * The filter also censors "bad words" within other words. Sometimes this is wanted (e.g. "mother\*\*\*\*er"); other times not (e.g. "assume" becomes "\*\*\*ume"). 
 
 ## Objectives
 
