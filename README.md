@@ -2,7 +2,17 @@
 
 * **Name**: Richard Tillies
 * **Date**: March 8, 2024
-* **Instructions**: [SBA JavaScript Web Application](docs/sba-js-web-application.pdf)
+* **Requirements**: [SBA JavaScript Web Application](docs/sba-js-web-application.pdf)
+
+## Instructions
+
+* Choose a search term from the drop down menu.
+* The chosen word will appear at the top on the right panel.
+* The link to the word on the Urban Dictionary website will appear on the top of the accordion.
+* The additional panels will display the entry date and approval rating percentage.
+  * Expand each panel to get the definition and example.
+  * The results will only display results that meet or exceed the minimum approval rating.
+  * The approval rating slider can be adjusted between 50% and 80%
 
 ## Objectives
 
