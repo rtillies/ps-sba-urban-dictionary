@@ -22,3 +22,7 @@
 * Use fetch and/or Axios to interact with an external web API.
 * Organize files using modules and imports.
 
+## Notes
+
+* Most of the free APIs on the [RapidAPI](https://rapidapi.com/hub) website did not have the ability to make POST, PUT, or PATCH requests.
+* A few *freemium* APIs had POST capabilities, but the daily or monthly limits were very low and required a credit card to subscribe.
