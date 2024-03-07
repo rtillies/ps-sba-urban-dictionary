@@ -169,8 +169,10 @@ async function createAccordionItem(item, index) {
   const cleanDefinition = await removeProfanity(item.definition)
   const cleanExample = await removeProfanity(item.example)
   accordionButton.innerHTML = `
-    <b>[${index+1}] ${date}</b> &nbsp; | &nbsp;
-    <i class="fa-solid fa-thumbs-up"></i> &nbsp; ${percent}%
+    <i class="fa-solid fa-thumbs-up"></i> &nbsp; 
+    ${percent}% &nbsp; &nbsp; &nbsp; 
+    <i class="fa-solid fa-calendar-days"></i> &nbsp; &nbsp; 
+    <b>${date}</b> 
     `
   accordionBody.innerHTML = `
     <p><b>Definition</b><br />
