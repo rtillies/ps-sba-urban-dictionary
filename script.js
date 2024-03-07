@@ -1,5 +1,3 @@
-// import axios from 'axios';
-
 const searchTerms = ['fly', 'phat', 'dope', 'fresh', 'def', 'bling', 'props', 'word', 'ill', 'homie', 'crib']
 
 const dropdown = document.querySelector('#dropdown')
@@ -63,7 +61,6 @@ async function searchTerm(event) {
 }
 
 function clearAccordion() {
-  console.log(accordion.childElementCount);
   while (accordion.childElementCount > 1) {
     accordion.lastElementChild.remove()
   }
@@ -117,7 +114,6 @@ async function createAccordionItem(item, index) {
   accordionCollapse.classList.add('collapse')
   accordionCollapse.setAttribute('data-bs-parent','#accordionExample')
 
-  
   const accordionBody = document.createElement('div')
   accordionBody.classList.add('accordion-body')
 
