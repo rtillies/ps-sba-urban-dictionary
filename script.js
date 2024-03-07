@@ -30,7 +30,7 @@ const populateDropdown = () => {
   })
 }
 populateDropdown()
-resetAccordion()
+clearAccordion()
 // createAccordionItem("i", 3)
 
 // searchButton.addEventListener ('click', searchTerm)
@@ -58,7 +58,7 @@ async function searchTerm(event) {
     const data = response.data.list 
     console.log(data);
 
-    resetAccordion()
+    clearAccordion()
 
     changeTopItem(data[0])
 
@@ -71,7 +71,7 @@ async function searchTerm(event) {
   }
 }
 
-function resetAccordion() {
+function clearAccordion() {
   console.log(accordion.childElementCount);
   while (accordion.childElementCount > 1) {
     accordion.lastElementChild.remove()
@@ -230,19 +230,22 @@ function resetAll() {
   slider.value = 60;
   minApproval.innerHTML = slider.value;
   wordHeading.innerText = ''
-  resetAccordion();
+  clearAccordion();
+  resetPlaceholder();
+}
 
-  // accordion.firstElementChild.innerHTML = ''
+function resetPlaceholder() {
   const topButton = topItem.getElementsByTagName('button')[0]
   topButton.innerHTML = 'Choose a search term from the dropdown menu!'
+
   const topBody = topItem.getElementsByTagName('div')[0]
-  // console.log("Top Body", topBody);
   const div = document.createElement('div')
   div.classList.add('accordion-body')
+
   const p = document.createElement('p')
+    
   p.innerText = "Get definitions and examples for your search term here!"
   div.append(p)
   topBody.append(div)
-  // topBody.innerHTML = `<p>Get definitions and examples for your search term here!</p>`
-
+  
 }
