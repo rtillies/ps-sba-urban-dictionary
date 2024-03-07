@@ -4,6 +4,14 @@
 * **Date**: March 8, 2024
 * **Requirements**: [SBA JavaScript Web Application](docs/sba-js-web-application.pdf)
 
+## Objectives
+
+* Use asynchronous JavaScript tools to build a responsive web application.
+* Demonstrate understanding of the JavaScript event loop.
+* Generate asynchronous code using Promises and async/await syntax.
+* Use fetch and/or Axios to interact with an external web API.
+* Organize files using modules and imports.
+
 ## Instructions
 
 * Choose a search term from the drop down menu.
@@ -16,14 +24,6 @@
 * The definitions and examples are filtered for profanity via a second API.
   * The filter is not "perfect". Some offensive words remain because they are technically not profane (e.g. the original title of *Let's Get It Started* by the Black Eyed Peas).
   * The filter also censors "bad words" within other words. Sometimes this is wanted (e.g. **mother\*\*\*\*er**); other times not (e.g. **assume** becomes **\*\*\*ume**). 
-
-## Objectives
-
-* Use asynchronous JavaScript tools to build a responsive web application.
-* Demonstrate understanding of the JavaScript event loop.
-* Generate asynchronous code using Promises and async/await syntax.
-* Use fetch and/or Axios to interact with an external web API.
-* Organize files using modules and imports.
 
 ## Notes
 
