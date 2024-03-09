@@ -81,7 +81,6 @@ async function removeProfanity(text) {
   
   try {
     const response = await axios.request(options);
-    console.log("Clean result", response.data.result);
     return response.data.result
   } catch (error) {
     console.error(error);

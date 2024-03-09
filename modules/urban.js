@@ -15,9 +15,6 @@ slider.oninput = function() {
 
 
 async function searchTerm(event) {
-  console.log("Event", event);
-  console.log("Target", event.target);
-  console.log("Value", event.target.value);
   const term = event.target.value;
 
   const options = {
@@ -33,7 +30,6 @@ async function searchTerm(event) {
   try {
     const response = await axios.request(options);
     const data = response.data.list 
-    console.log(data);
     const first = data[0]
 
     clearAccordion()
@@ -51,9 +47,7 @@ async function searchTerm(event) {
 }
 
 function changeTopItem(item) {
-  console.log("Top Item", topItem);
   const topButton = topItem.getElementsByTagName('button')[0]
-  console.log("Top Button", topButton);
   topButton.innerHTML = 
     `<span>
     Urban Dictionary Permalink:
@@ -66,7 +60,6 @@ function changeTopItem(item) {
     `
 
   const topBody = topItem.getElementsByTagName('div')[0]
-  console.log("Top Body", topBody);
   topBody.innerHTML = ''
 }
 
