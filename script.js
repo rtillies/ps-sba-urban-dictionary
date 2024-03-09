@@ -166,7 +166,7 @@ function resetAll() {
   dropdown.value = ''
   slider.value = 60;
   minApproval.innerHTML = slider.value;
-  wordHeading.innerText = ''
+  wordHeading.innerHTML = '&nbsp;'
   clearAccordion();
   resetPlaceholder();
 }
