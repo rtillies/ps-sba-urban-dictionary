@@ -7,6 +7,18 @@ const searchTerms = ['fly', 'phat', 'dope', 'fresh', 'def', 'bling', 'props', 'w
 
 const dropdown = document.querySelector('#dropdown')
 const resetAllButton = document.querySelector('#reset-all')
+const wordHeading = document.querySelector('#word-heading')
+const topItem = document.getElementById('top-item')
+
+let minApproval = document.getElementById("min-approval");
+minApproval.innerHTML = slider.value;
+
+slider.oninput = function() {
+  minApproval.innerHTML = this.value;
+  if (dropdown.value !== '')
+    searchTerm({"target": dropdown})
+}
+
 // const accordion = document.querySelector('#accordionExample')
 // const topItem = document.getElementById('top-item')
 
@@ -171,7 +183,7 @@ function resetAll() {
   dropdown.value = ''
   slider.value = 60;
   minApproval.innerHTML = slider.value;
-  wordHeading.innerText = ''
+  wordHeading.innerHTML = '&nbsp;'
   clearAccordion();
   resetPlaceholder();
 }
