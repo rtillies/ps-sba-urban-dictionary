@@ -29,3 +29,4 @@
 
 * Most of the free APIs on the [RapidAPI](https://rapidapi.com/hub) website did not have the ability to make POST, PUT, or PATCH requests.
 * A few *freemium* APIs had POST capabilities, but the daily or monthly limits were very low and required a credit card to subscribe.
+* The project feels *modular* in name only. There is a lot of repetitive code throughout the main `script.js` file and the `.js` files in the `modules` directory. With additional time, I would continue to work on making the code more DRY.
